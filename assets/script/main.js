@@ -6,8 +6,11 @@ let spaceship = document.createElement("div");;
 
 function start(){
     instruction.classList.add("hidden")
+    game.classList.remove("hidden");
     game.appendChild(spaceship);
     spaceship.classList.add("spaceship");
+    game.appendChild(enemy);
+    enemy.classList.add("enemy");
     console.log(game);
 
 
