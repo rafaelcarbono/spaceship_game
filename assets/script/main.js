@@ -12,15 +12,20 @@ function movePlayer(){
 
     document.body.addEventListener('keydown', function (e) {
         let code = e.code;
-        let move = 5;
-        let mover;
+        let move = 10;
 
-        console.log(spaceship.getBoundingClientRect().top);
+        let gameSize = parseInt(window.getComputedStyle(game).width);
+
     
         if(code == 'ArrowLeft'){
-            mover = parseInt(window.getComputedStyle(spaceship).left) - move;
-            spaceship.style.cssText = 'left:' + mover + 'px';
-            console.log('ArrowLeft');
+            let moveL = parseInt(window.getComputedStyle(spaceship).left) - move;
+
+            if(moveL > 10){
+                spaceship.style.cssText = 'left:' + moveL + 'px';
+                console.log('ArrowLeft', moveL);
+            }
+            
+
         }
 
         /* if(code == 'ArrowUp'){
@@ -30,9 +35,12 @@ function movePlayer(){
         }*/
 
         if(code == 'ArrowRight'){
-            mover = parseInt(window.getComputedStyle(spaceship).left) + move;
-            spaceship.style.cssText = 'left:' + mover + 'px';
-            console.log('ArrowRight');
+            let moveR = parseInt(window.getComputedStyle(spaceship).right) - move;
+            let tester = gameSize / 100;
+            if(moveR > 10){
+            spaceship.style.cssText = 'right:' + moveR + 'px';
+            console.log('ArrowRight', moveR, tester);
+        }
         }
         /*
         if(code == 'ArrowDown'){
